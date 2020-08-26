@@ -30,54 +30,54 @@ def writeFormula(filename):
         op2 = choice(ops)
         n = random.randint(1,9)
         if op1 == '＋' and op2 == '＋' :
-            a = random.randint(0,100)
-            b = random.randint(0,100-a)
-            c = random.randint(0,100-a-b)
+            a = random.randint(1, 50)
+            b = random.randint(1, 50 - a)
+            c = random.randint(0, 100 - a - b)
             ans.append(a + b + c)
         elif op1 == '＋' and op2 == '－' :
-            a = random.randint(0,100)
-            b = random.randint(0,100-a)
-            c = random.randint(0,a+b)
+            a = random.randint(1,100)
+            b = random.randint(1,100-a)
+            c = random.randint(1,a+b)
             ans.append(a + b - c)
         elif op1 == '＋' and op2 == '×' :
-            b = random.randint(0,9)
-            c = random.randint(0,9)
-            a = random.randint(0, 100 - b * c)
+            b = random.randint(1,9)
+            c = random.randint(1,9)
+            a = random.randint(1, 100 - b * c)
             ans.append(a + b * c)
         elif op1 == '＋' and op2 == '÷':
             c = random.randint(1, 9)
             b = n * c
-            a = random.randint(0, 100 - b / c)
+            a = random.randint(1, 100 - b / c)
             ans.append(a + b / c)
         elif op1 == '－' and op2 == '＋' :
-            a = random.randint(0,100)
-            b = random.randint(0,a)
-            c = random.randint(0,100-a+b)
+            a = random.randint(1,100)
+            b = random.randint(1,a)
+            c = random.randint(1,100-a+b)
             ans.append(a - b + c)
         elif op1 == '－' and op2 == '－' :
-            a = random.randint(0,100)
-            b = random.randint(0,a)
-            c = random.randint(0,a-b)
+            a = random.randint(50, 100)
+            b = random.randint(1, a // 2)
+            c = random.randint(0, a - b)
             ans.append(a - b - c)
         elif op1 == '－' and op2 == '×' :
-            b = random.randint(0,9)
-            c = random.randint(0,9)
+            b = random.randint(1,9)
+            c = random.randint(1,9)
             a = random.randint(b*c,100)
             ans.append(a - b * c)
         elif op1 == '－' and op2 == '÷':
             c = random.randint(1, 9)
             b = n * c
-            a = random.randint(100 - b / c,100)
+            a = random.randint(b / c,100)
             ans.append(a - b / c)
         elif op1 == '×' and op2 == '＋' :
-            a = random.randint(0, 9)
-            b = random.randint(0, 9)
-            c = random.randint(0,100-a*b)
+            a = random.randint(1, 9)
+            b = random.randint(1, 9)
+            c = random.randint(1,100-a*b)
             ans.append(a * b + c)
         elif op1 == '×' and op2 == '－' :
-            a = random.randint(0,9)
-            b = random.randint(0,9)
-            c = random.randint(0,a*b)
+            a = random.randint(2, 9)
+            b = random.randint(2, 9)
+            c = random.randint(1, a * b)
             ans.append(a * b - c)
         elif op1 == '÷' and op2 == '＋' :
             b = random.randint(1, 9)
@@ -87,7 +87,7 @@ def writeFormula(filename):
         elif op1 == '÷' and op2 == '－' :
             b = random.randint(1,9)
             a = n * b
-            c = random.randint(0,a / b)
+            c = random.randint(1,a / b)
             ans.append(a / b - c)
         else :
             continue
@@ -108,13 +108,7 @@ def writeFormula(filename):
     ws2.write_column('E2', cells[3], format)
 
     workbook.close()
-#print("*" * 60)
-#i = 0
-#while i < len(ans):
-#    print("第%s题的答案是：%d" % (i + 1, ans[i]))
-#    i += 1
-# TODO 转换成exe程序，输入文件名，默认当天日期
-# https://www.cnblogs.com/mini-monkey/p/11195309.html
+    # end writeFormula
 
 filename = ''
 
